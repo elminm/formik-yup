@@ -21,7 +21,7 @@ function Register() {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className="login-form">
         <div className="form-group">
           <label htmlFor="name" className="form-label">
             Name
@@ -42,9 +42,7 @@ function Register() {
             }}
           />
           {formik.touched.name && (
-            <p style={{ color: "red", fontSize: "10px" }}>
-              {formik.errors?.name}
-            </p>
+            <p className="error-message">{formik.errors?.name}</p>
           )}
         </div>
         <div className="form-group">
@@ -56,7 +54,7 @@ function Register() {
             className="form-input"
             id="mail"
             name="mail"
-            type="mail"
+            type="email"
             onChange={formik.handleChange}
             value={formik.values.mail}
             style={{
@@ -67,9 +65,7 @@ function Register() {
             }}
           />
           {formik.touched.mail && (
-            <p style={{ color: "red", fontSize: "10px" }}>
-              {formik.errors?.mail}
-            </p>
+            <p className="error-message">{formik.errors?.mail}</p>
           )}
         </div>
         <div className="form-group">
@@ -99,13 +95,13 @@ function Register() {
               <span className="radio-text">Male</span>
             </label>
           </div>
-          <p style={{ color: "red", fontSize: "10px" }}>
-            {formik.errors?.gender}
-          </p>
+          {formik.touched.gender && (
+            <p className="error-message">{formik.errors?.gender}</p>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="password" className="form-label">
-            Passowrd
+            Password
           </label>
           <br />
           <input
@@ -123,14 +119,12 @@ function Register() {
             }}
           />
           {formik.touched.password && (
-            <p style={{ color: "red", fontSize: "10px" }}>
-              {formik.errors?.password}
-            </p>
+            <p className="error-message">{formik.errors?.password}</p>
           )}
         </div>
         <div className="form-group">
           <label htmlFor="confirmPassword" className="form-label">
-            Confirm Passowrd
+            Confirm Password
           </label>
           <br />
           <input
@@ -148,9 +142,7 @@ function Register() {
             }}
           />
           {formik.touched.confirmPassword && (
-            <p style={{ color: "red", fontSize: "10px" }}>
-              {formik.errors?.confirmPassword}
-            </p>
+            <p className="error-message">{formik.errors?.confirmPassword}</p>
           )}
         </div>
         <div>
